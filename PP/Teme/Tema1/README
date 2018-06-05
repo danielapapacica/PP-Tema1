@@ -1,0 +1,40 @@
+323CB
+Papacica Elena-Daniela
+
+
+									Tema 1
+
+
+
+	->	Solve Simple
+
+	Am incercat sa inteleg mai bine programarea dinamica lazy.
+	La inceput am vrut sa gandesc algoritmul intr-un limbaj mai familiar mie in contextul
+	programarii dinamice, de exemplu Java.
+
+	Astfel, in cadrul matricei mele la ficare linie, costul pana la nodul j este egal cu:
+	dp[i][j] = min(dp[i-1][j], dp[i-1][k] + cost(k,j) unde k sunt orasele vecine cu j),
+	asta daca ar fi necesar sa aflu doar costul minim si matricea ar fi formata doar din
+	costuri.
+
+	Insa pentru ca am vrut sa retin si succesiunea de orase am ales ca matricea mea sa fie
+	formata din elemente tuplu de forma (lista orase, cost).
+
+
+	M-am inspirat din exemplul facut la curs cu programare dinamica lazy si am implementat
+	pe exemplul meu. Am folosit in plus si o succesiune de functii ajutatoare (la liniile 
+	27-54 in cod) care ma ajuta sa calculez recurenta de mai sus si sa aflu succesiunea de
+	orase prin care trec pentru a obtine acel cost minim.
+
+
+	-> Solve Costs
+
+	Am inceput de la pasii taskului anterior pe care i-am adaptat. In cadrul acestui task
+	matricea contine tupluri de 2 elemente, dintre care primul este o lista de orase prin
+	care s-a trecut si suma de bani ramasa in urma intrarii in fiecare oras.
+
+	Diferenta in implementare fata de taskul anterior este faptul ca aplic un filter
+	pentru a selecta la fiecare pas drumul de cost minim care se incadreaza sumei de bani
+	ramase. In cazul in care am mai multe orase prin care pot trece la un moment dat fara
+	a epuiza suma de bani si care ar rezulta acelasi cost minim, creez o lista a acestora
+	si caut traseul care ma ajuta sa raman cu mai multi bani.
